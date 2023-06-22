@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Search Results for "{{ query }}"</h1>
+  
+  {% if notes %}
+    <ul>
+      {% for note in notes %}
+        <li>{{ note.title }}</li>
+        <p>{{ note.content }}</p>
+        <!-- Display other note details as needed -->
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No matching notes found.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-6 border-end">
+      <div class="border-bottom pb-3">
+        <h1>Your Notes</h1>
+      </div>
+      {% if user_notes %}
+        {% for note in user_notes %}
+          <div class="border-bottom mb-3">
+            <h3>{{ note.title }}</h3>
+            <p>{{ note.content }}</p>
+            <!-- Display other note details as needed -->
+          </div>
+        {% empty %}
+          <p>No notes found.</p>
+        {% endfor %}
+      {% else %}
+        {% if user.is_authenticated %}
+          <p>No notes found.</p>
+        {% else %}
+          <p>Login to see your notes.</p>
+          <p>New User?<br>Register and start making notes.</p>
+        {% endif %}
+      {% endif %}
+    </div>
+    <div class="col-md-6 border-start">
+      <div class="border-bottom pb-3">
+        <h1>Shared Notes</h1>
+      </div>
+      {% for note in shared_notes %}
+        <div class="border-bottom mb-3">
+          <h3>{{ note.title }}</h3>
+          <p>{{ note.content }}</p>
+          <!-- Display other note details as needed -->
+        </div>
+      {% empty %}
+        <p>No shared notes found.</p>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
