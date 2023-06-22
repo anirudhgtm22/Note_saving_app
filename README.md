@@ -16,7 +16,7 @@ MyNotes is a note-taking platform that allows users to store and manage textual,
 ## Technologies Used
 
 - Backend: Django (Python web framework)
-- Frontend: HTML, CSS, JavaScript
+- Frontend: HTML, CSS
 - Database: SQLite (for testing purposes)
 - API: Django REST Framework
 
